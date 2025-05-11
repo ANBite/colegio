@@ -1,8 +1,6 @@
-import comprarAproveedor from "@/components/ComprarAProveedor";
-import MostrarInventario from "@/components/TablaCompras";
+import FormSwitcher from "@/components/CompraFactura";
 
-const Form2 = comprarAproveedor
-const Form1 = MostrarInventario
+const Form2 = FormSwitcher
 
 
 function compraproveedor() {
@@ -15,7 +13,6 @@ function compraproveedor() {
 			padding: '20px',
 			backgroundColor: '#CCA9DD',
 		}}> 
-			<Form1 />
 			<Form2 />
 		</div>
 	);
