@@ -1,9 +1,8 @@
 "use client";
 import axios from "axios";
-import { useRef, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRef, useState, useEffect } from "react";
 
-function RegistrarEstudiante() {
+export default function EstudianteForm() {
     const [estudiante, setEstudiante] = useState({
         cod_personal: "",
         nombre: "",
@@ -14,61 +13,65 @@ function RegistrarEstudiante() {
         fecha_ingreso: "",
         fecha_egreso: "",
         motivo_de_egreso: "",
-        documentacion_estudiante_id: "",
-        contacto_de_emergencia_id: "",
         tipo_sangre: "",
         religion: "",
         etnia: "",
         idioma_materno: "",
         necesita_apoyo_educativo: false,
-        beca_id: "",
+        beca_id: ""
     });
 
+    const [becas, setBecas] = useState([]);
     const form = useRef(null);
-    const router = useRouter();
+
+    useEffect(() => {
+        // Cargar becas disponibles
+        const fetchBecas = async () => {
+            try {
+                const res = await axios.get("/api/becas");
+                setBecas(res.data);
+            } catch (error) {
+                console.error("Error al cargar becas:", error);
+            }
+        };
+        fetchBecas();
+    }, []);
 
     const handleChange = (e) => {
+        const { name, value, type, checked } = e.target;
         setEstudiante({
             ...estudiante,
-            [e.target.name]: e.target.value,
+            [name]: type === "checkbox" ? checked : value,
         });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        const {
-            cod_personal, nombre, CUI, fecha_nacimiento,
-            constancia, genero, fecha_ingreso, fecha_egreso, motivo_de_egreso,
-            documentacion_estudiante_id, contacto_de_emergencia_id, tipo_sangre,
-            religion, etnia, idioma_materno, necesita_apoyo_educativo, beca_id,
-        } = estudiante;
-
-        if (!cod_personal || !nombre || !CUI || !fecha_nacimiento || !constancia || !genero || !fecha_ingreso || !documentacion_estudiante_id || !contacto_de_emergencia_id || !tipo_sangre || !religion || !etnia || !idioma_materno || !beca_id) {
-            alert("Debe llenar todos los campos.");
-            return;
-        }
-
         try {
             const res = await axios.post("/api/estudiante", estudiante);
-            alert("Estudiante registrado exitosamente.");
-            console.log("Respuesta:", res.data);
-
+            alert("Estudiante registrado exitosamente");
             form.current.reset();
             setEstudiante({
-                cod_personal: "", nombre: "", CUI: "",
-                fecha_nacimiento: "", constancia: "", genero: "", fecha_ingreso: "", documentacion_estudiante_id: "",
-                contacto_de_emergencia_id: "", tipo_sangre: "", religion: "", etnia: "",
-                idioma_materno: "", necesita_apoyo_educativo: "", beca_id: "",
+                cod_personal: "",
+                nombre: "",
+                CUI: "",
+                fecha_nacimiento: "",
+                constancia: "",
+                genero: "",
+                fecha_ingreso: "",
+                fecha_egreso: "",
+                motivo_de_egreso: "",
+                tipo_sangre: "",
+                religion: "",
+                etnia: "",
+                idioma_materno: "",
+                necesita_apoyo_educativo: false,
+                beca_id: ""
             });
         } catch (error) {
-            console.error("Error al registrar el estudiante:", error);
-            alert("Error al guardar el estudiante.");
+            console.error("Error al registrar estudiante:", error);
+            alert("Error al registrar estudiante");
         }
-    };
-
-    const irAgregarProveedor = () => {
-        router.push("/agregarproveedor");
     };
 
     return (
@@ -77,210 +80,199 @@ function RegistrarEstudiante() {
             ref={form}
             onSubmit={handleSubmit}
         >
+            <h2 className="text-xl font-bold mb-4">Registro de Estudiante</h2>
+            
             <div className="grid grid-cols-3 gap-4">
-                <div>
-                    <label>Código Personal:</label>
+                <div className="mb-4">
+                    <label className="block text-gray-700">Código Personal:</label>
                     <input
                         type="text"
                         name="cod_personal"
                         value={estudiante.cod_personal}
                         onChange={handleChange}
-                        placeholder="Código Personal"
-                        className="w-full h-10 bg-purple-600 text-black rounded-md p-2"
+                        className="w-full px-3 py-2 border rounded"
                     />
                 </div>
-                <div>
-                    <label>Nombre:</label>
+
+                <div className="mb-4">
+                    <label className="block text-gray-700">Nombre Completo:</label>
                     <input
                         type="text"
                         name="nombre"
                         value={estudiante.nombre}
                         onChange={handleChange}
-                        placeholder="Nombre"
-                        className="w-full h-10 bg-purple-600 text-black rounded-md p-2"
+                        className="w-full px-3 py-2 border rounded"
+                        required
                     />
                 </div>
-                <div>
-                    <label>CUI:</label>
+
+                <div className="mb-4">
+                    <label className="block text-gray-700">CUI:</label>
                     <input
                         type="text"
                         name="CUI"
                         value={estudiante.CUI}
                         onChange={handleChange}
-                        placeholder="CUI"
-                        className="w-full h-10 bg-purple-600 text-black rounded-md p-2"
+                        className="w-full px-3 py-2 border rounded"
                     />
                 </div>
-                <div>
-                    <label>Fecha de Nacimiento:</label>
+
+                <div className="mb-4">
+                    <label className="block text-gray-700">Fecha Nacimiento:</label>
                     <input
                         type="date"
                         name="fecha_nacimiento"
                         value={estudiante.fecha_nacimiento}
                         onChange={handleChange}
-                        className="w-full h-10 bg-purple-600 text-black rounded-md p-2"
+                        className="w-full px-3 py-2 border rounded"
                     />
                 </div>
-                <div>
-                    <label>Constancia:</label>
+
+                <div className="mb-4">
+                    <label className="block text-gray-700">Constancia:</label>
                     <input
                         type="text"
                         name="constancia"
                         value={estudiante.constancia}
                         onChange={handleChange}
-                        placeholder="Constancia"
-                        className="w-full h-10 bg-purple-600 text-black rounded-md p-2"
+                        className="w-full px-3 py-2 border rounded"
                     />
                 </div>
-                <div>
-                    <label>Género:</label>
-                    <input
-                        type="text"
+
+                <div className="mb-4">
+                    <label className="block text-gray-700">Género:</label>
+                    <select
                         name="genero"
                         value={estudiante.genero}
                         onChange={handleChange}
-                        placeholder="Género"
-                        className="w-full h-10 bg-purple-600 text-black rounded-md p-2"
-                    />
+                        className="w-full px-3 py-2 border rounded"
+                    >
+                        <option value="">Seleccione...</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                    </select>
                 </div>
-                <div>
-                    <label>Fecha de Ingreso:</label>
+
+                <div className="mb-4">
+                    <label className="block text-gray-700">Fecha Ingreso:</label>
                     <input
                         type="date"
                         name="fecha_ingreso"
                         value={estudiante.fecha_ingreso}
                         onChange={handleChange}
-                        className="w-full h-10 bg-purple-600 text-black rounded-md p-2"
+                        className="w-full px-3 py-2 border rounded"
                     />
                 </div>
-                <div>
-                    <label>Fecha de Egreso:</label>
+
+                <div className="mb-4">
+                    <label className="block text-gray-700">Fecha Egreso:</label>
                     <input
                         type="date"
                         name="fecha_egreso"
                         value={estudiante.fecha_egreso}
                         onChange={handleChange}
-                        className="w-full h-10 bg-purple-600 text-black rounded-md p-2"
+                        className="w-full px-3 py-2 border rounded"
                     />
                 </div>
-                <div>
-                    <label>Motivo de Egreso:</label>
-                    <input
-                        type="text"
+
+                <div className="mb-4">
+                    <label className="block text-gray-700">Motivo Egreso:</label>
+                    <textarea
                         name="motivo_de_egreso"
                         value={estudiante.motivo_de_egreso}
                         onChange={handleChange}
-                        placeholder="Motivo de Egreso"
-                        className="w-full h-10 bg-purple-600 text-black rounded-md p-2"
+                        className="w-full px-3 py-2 border rounded"
                     />
                 </div>
-                <div>
-                    <label>ID Documentación Estudiante:</label>
-                    <input
-                        type="text"
-                        name="documentacion_estudiante_id"
-                        value={estudiante.documentacion_estudiante_id}
-                        onChange={handleChange}
-                        placeholder="ID Documentación Estudiante"
-                        className="w-full h-10 bg-purple-600 text-black rounded-md p-2"
-                    />
-                </div>
-                <div>
-                    <label>ID Contacto de Emergencia:</label>
-                    <input
-                        type="text"
-                        name="contacto_de_emergencia_id"
-                        value={estudiante.contacto_de_emergencia_id}
-                        onChange={handleChange}
-                        placeholder="ID Contacto de Emergencia"
-                        className="w-full h-10 bg-purple-600 text-black rounded-md p-2"
-                    />
-                </div>
-                <div>
-                    <label>Tipo de Sangre:</label>
-                    <input
-                        type="text"
+
+                <div className="mb-4">
+                    <label className="block text-gray-700">Tipo de Sangre:</label>
+                    <select
                         name="tipo_sangre"
                         value={estudiante.tipo_sangre}
                         onChange={handleChange}
-                        placeholder="Tipo de Sangre"
-                        className="w-full h-10 bg-purple-600 text-black rounded-md p-2"
-                    />
+                        className="w-full px-3 py-2 border rounded"
+                    >
+                        <option value="">Seleccione...</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                    </select>
                 </div>
-                <div>
-                    <label>Religión:</label>
+
+                <div className="mb-4">
+                    <label className="block text-gray-700">Religión:</label>
                     <input
                         type="text"
                         name="religion"
                         value={estudiante.religion}
                         onChange={handleChange}
-                        placeholder="Religión"
-                        className="w-full h-10 bg-purple-600 text-black rounded-md p-2"
+                        className="w-full px-3 py-2 border rounded"
                     />
                 </div>
-                <div>
-                    <label>Etnia:</label>
+
+                <div className="mb-4">
+                    <label className="block text-gray-700">Etnia:</label>
                     <input
                         type="text"
                         name="etnia"
                         value={estudiante.etnia}
                         onChange={handleChange}
-                        placeholder="Etnia"
-                        className="w-full h-10 bg-purple-600 text-black rounded-md p-2"
+                        className="w-full px-3 py-2 border rounded"
                     />
                 </div>
-                <div>
-                    <label>Idioma Materno:</label>
+
+                <div className="mb-4">
+                    <label className="block text-gray-700">Idioma Materno:</label>
                     <input
                         type="text"
                         name="idioma_materno"
                         value={estudiante.idioma_materno}
                         onChange={handleChange}
-                        placeholder="Idioma Materno"
-                        className="w-full h-10 bg-purple-600 text-black rounded-md p-2"
+                        className="w-full px-3 py-2 border rounded"
                     />
                 </div>
-                <div>
-                    <label>Necesita Apoyo Educativo:</label>
+
+                <div className="mb-4 flex items-center">
                     <input
                         type="checkbox"
                         name="necesita_apoyo_educativo"
                         checked={estudiante.necesita_apoyo_educativo}
-                        onChange={(e) => setEstudiante({ ...estudiante, necesita_apoyo_educativo: e.target.checked })}
-                        className="w-full h-10 bg-purple-600 text-black rounded-md p-2"
+                        onChange={handleChange}
+                        className="mr-2"
                     />
+                    <label className="text-gray-700">Necesita apoyo educativo</label>
                 </div>
-                <div>
-                    <label>ID Beca:</label>
-                    <input
-                        type="text"
+
+                <div className="mb-4">
+                    <label className="block text-gray-700">Beca:</label>
+                    <select
                         name="beca_id"
                         value={estudiante.beca_id}
                         onChange={handleChange}
-                        placeholder="ID Beca"
-                        className="w-full h-10 bg-purple-600 text-black rounded-md p-2"
-                    />
+                        className="w-full px-3 py-2 border rounded"
+                    >
+                        <option value="">Ninguna</option>
+                        {becas.map(beca => (
+                            <option key={beca.beca_id} value={beca.beca_id}>
+                                {beca.nombre_beca} ({beca.porcentaje}%)
+                            </option>
+                        ))}
+                    </select>
                 </div>
             </div>
 
-            <div className="mt-4 flex justify-center space-x-6">
-                <button
-                    type="submit"
-                    className="w-[200px] h-[40px] bg-purple-500 text-white rounded-md"
-                >
-                    Registrar Estudiante
-                </button>
-
-                <button
-                    type="button"
-                    onClick={irAgregarProveedor}
-                    className="w-[200px] h-[40px] bg-green-500 text-white rounded-md"
-                >
-                    ➡️ Registrar Proveedor
-                </button>
-            </div>
+            <button
+                type="submit"
+                className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+            >
+                Registrar Estudiante
+            </button>
         </form>
     );
 }
-
-export default RegistrarEstudiante;
