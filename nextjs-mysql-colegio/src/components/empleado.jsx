@@ -246,36 +246,24 @@ export default function EmpleadoForm() {
 
                 <div className="mb-4">
                     <label className="block text-gray-700">Puesto:</label>
-                    <select
+                    <input
                         name="puesto_id"
                         value={empleado.puesto_id}
                         onChange={handleChange}
                         className="w-full px-3 py-2 border rounded"
-                    >
-                        <option value="">Seleccione...</option>
-                        {puestos.map(puesto => (
-                            <option key={puesto.puesto_id} value={puesto.puesto_id}>
-                                {puesto.nombre}
-                            </option>
-                        ))}
-                    </select>
+                                                placeholder="ID puesto"
+                    />
                 </div>
 
                 <div className="mb-4">
                     <label className="block text-gray-700">Tipo de Empleado:</label>
-                    <select
+                    <input
                         name="tipo_de_empleado_id"
                         value={empleado.tipo_de_empleado_id}
                         onChange={handleChange}
                         className="w-full px-3 py-2 border rounded"
-                    >
-                        <option value="">Seleccione...</option>
-                        {tiposEmpleado.map(tipo => (
-                            <option key={tipo.tipo_de_empleado_id} value={tipo.tipo_de_empleado_id}>
-                                {tipo.descripcion}
-                            </option>
-                        ))}
-                    </select>
+                                            placeholder="Tipo empleado ID"
+                    />
                 </div>
 
                 <div className="mb-4">

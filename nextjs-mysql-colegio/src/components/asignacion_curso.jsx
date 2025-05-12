@@ -16,26 +16,7 @@ export default function AsignacionCursoForm() {
     const [ciclos, setCiclos] = useState([]);
     const form = useRef(null);
 
-    useEffect(() => {
-        // Cargar datos necesarios
-        const fetchData = async () => {
-            try {
-                const [resCursos, resSecciones, resDocentes, resCiclos] = await Promise.all([
-                    axios.get("/api/cursos"),
-                    axios.get("/api/secciones"),
-                    axios.get("/api/docentes"),
-                    axios.get("/api/ciclos-escolares")
-                ]);
-                setCursos(resCursos.data);
-                setSecciones(resSecciones.data);
-                setDocentes(resDocentes.data);
-                setCiclos(resCiclos.data);
-            } catch (error) {
-                console.error("Error al cargar datos:", error);
-            }
-        };
-        fetchData();
-    }, []);
+
 
     const handleChange = (e) => {
         setAsignacion({
@@ -47,7 +28,7 @@ export default function AsignacionCursoForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post("/api/asignacion-cursos", asignacion);
+            const res = await axios.post("/api/asignacion-curso", asignacion);
             alert("Asignación de curso registrada exitosamente");
             form.current.reset();
             setAsignacion({
@@ -73,74 +54,50 @@ export default function AsignacionCursoForm() {
             <div className="grid grid-cols-2 gap-4">
                 <div className="mb-4">
                     <label className="block text-gray-700">Curso:</label>
-                    <select
+                    <input
                         name="id_curso"
                         value={asignacion.id_curso}
                         onChange={handleChange}
                         className="w-full px-3 py-2 border rounded"
                         required
-                    >
-                        <option value="">Seleccione un curso</option>
-                        {cursos.map(curso => (
-                            <option key={curso.id_curso} value={curso.id_curso}>
-                                {curso.nombre}
-                            </option>
-                        ))}
-                    </select>
+                        placeholder="ID curso"
+                    />
                 </div>
 
                 <div className="mb-4">
                     <label className="block text-gray-700">Sección:</label>
-                    <select
+                    <input
                         name="id_seccion"
                         value={asignacion.id_seccion}
                         onChange={handleChange}
                         className="w-full px-3 py-2 border rounded"
                         required
-                    >
-                        <option value="">Seleccione una sección</option>
-                        {secciones.map(seccion => (
-                            <option key={seccion.seccion_id} value={seccion.seccion_id}>
-                                {seccion.nombre} (Grado: {seccion.grado_id})
-                            </option>
-                        ))}
-                    </select>
+                        placeholder="ID seccion"
+                    />
                 </div>
 
                 <div className="mb-4">
                     <label className="block text-gray-700">Docente:</label>
-                    <select
+                    <input
                         name="id_docente"
                         value={asignacion.id_docente}
                         onChange={handleChange}
                         className="w-full px-3 py-2 border rounded"
                         required
-                    >
-                        <option value="">Seleccione un docente</option>
-                        {docentes.map(docente => (
-                            <option key={docente.empleado_id} value={docente.empleado_id}>
-                                {docente.nombre}
-                            </option>
-                        ))}
-                    </select>
+                        placeholder="ID docente"
+                    />
                 </div>
 
                 <div className="mb-4">
                     <label className="block text-gray-700">Ciclo Escolar:</label>
-                    <select
+                    <input
                         name="ciclo_escolar_id"
                         value={asignacion.ciclo_escolar_id}
                         onChange={handleChange}
                         className="w-full px-3 py-2 border rounded"
                         required
-                    >
-                        <option value="">Seleccione un ciclo</option>
-                        {ciclos.map(ciclo => (
-                            <option key={ciclo.ciclo_id} value={ciclo.ciclo_id}>
-                                {ciclo.año} ({ciclo.estado})
-                            </option>
-                        ))}
-                    </select>
+                        placeholder="Ciclo ID"
+                    />
                 </div>
             </div>
 
