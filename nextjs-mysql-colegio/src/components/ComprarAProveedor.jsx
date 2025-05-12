@@ -82,7 +82,7 @@ const eliminarCompra = async () => {
 
     return (
         <form
-            className="absolute bg-white shadow-md rounded-md px-8 pt-6 pb-8 mb-4 w-[655px] h-[400px] top-[450px] left-[400px]"
+            className="absolute bg-white shadow-md rounded-md px-8 pt-6 pb-8 mb-4 w-[1440px] h-[650px] top-[70px] left-[20px]"
             ref={form}
             onSubmit={handleSubmit}
         >
