@@ -9,17 +9,17 @@ function FormSwitcher() {
   return (
     <div>
         <button 
-        onClick={() => setActiveForm('form1')}
+        onClick={() => setActiveForm('estudiante')}
         style={{
                   position: "absolute",
                   top: "30px",
-                  left: "500px",
+                  left: "20px",
                   width: "120px",
                   height: "40px",
                   backgroundColor: "#6600A1",
                   color: "#fff",
                   borderRadius: "12px",
-              }}>Formulario 1</button>
+              }}>Estudiante</button>
         
 
         <button 
@@ -48,7 +48,7 @@ function FormSwitcher() {
               }}>Formulario 3</button>
 
       {/* Mostrar el formulario según el estado */}
-      {activeForm === 'form1' && <Estudianteform/>}
+      {activeForm === 'estudiante' && <Estudianteform/>}
 
       {activeForm === 'form2' && (
         <form>
