@@ -7,7 +7,7 @@ export default function ContratoEmpleadoForm() {
         empleado_id: "",
         tipo_contrato: "",
         fecha_inicio: "",
-        fecha_fin: "",
+        fecha_fin: undefined,
         salario_mensual: "",
         estado: "",
     });
@@ -46,7 +46,7 @@ export default function ContratoEmpleadoForm() {
                 empleado_id: "",
                 tipo_contrato: "",
                 fecha_inicio: "",
-                fecha_fin: "",
+                fecha_fin: undefined,
                 salario_mensual: "",
                 estado: "",
             });

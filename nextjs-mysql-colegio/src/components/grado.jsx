@@ -5,8 +5,8 @@ import { useEffect, useRef, useState } from "react";
 export default function GradoForm() {
     const [grado, setGrado] = useState({
         nombre_grado: "",
-        prerequisito_grado_id: "",
-        descripcion: "",
+        prerequisito_grado_id: undefined,
+        descripcion: undefined,
     });
 
     const [prerequisitos, setPrerequisitos] = useState([]);
@@ -37,8 +37,8 @@ export default function GradoForm() {
             form.current.reset();
             setGrado({
                 nombre_grado: "",
-                prerequisito_grado_id: "",
-                descripcion: "",
+                prerequisito_grado_id: undefined,
+                descripcion: undefined,
             });
         } catch (error) {
             console.error("Error al registrar grado:", error);

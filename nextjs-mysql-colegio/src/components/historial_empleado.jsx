@@ -5,11 +5,11 @@ import { useEffect, useRef, useState } from "react";
 export default function HistorialEmpleadoForm() {
     const [historialEmpleado, setHistorialEmpleado] = useState({
         empleado_id: "",
-        fecha_de_registro: "",
-        accion_realizada: "",
-        descripcion: "",
-        usuario_registro: "",
-        observaciones: "",
+        fecha_de_registro: undefined,
+        accion_realizada: undefined,
+        descripcion: undefined,
+        usuario_registro: undefined,
+        observaciones: undefined,
     });
 
     const [empleados, setEmpleados] = useState([]);
@@ -44,11 +44,11 @@ export default function HistorialEmpleadoForm() {
             form.current.reset();
             setHistorialEmpleado({
                 empleado_id: "",
-                fecha_de_registro: "",
-                accion_realizada: "",
-                descripcion: "",
-                usuario_registro: "",
-                observaciones: "",
+                fecha_de_registro: undefined,
+                accion_realizada: undefined,
+                descripcion: undefined,
+                usuario_registro: undefined,
+                observaciones: undefined,
             });
         } catch (error) {
             console.error("Error al registrar historial:", error);

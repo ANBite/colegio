@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 export default function DepartamentoForm() {
     const [departamento, setDepartamento] = useState({
         nombre: "",
-        descripcion: ""
+        descripcion: undefined
     });
 
     const form = useRef(null);
@@ -25,7 +25,7 @@ export default function DepartamentoForm() {
             form.current.reset();
             setDepartamento({
                 nombre: "",
-                descripcion: ""
+                descripcion: undefined
             });
         } catch (error) {
             console.error("Error al registrar departamento:", error);

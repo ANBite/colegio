@@ -6,7 +6,7 @@ export default function ContactoEmergenciaEstudianteForm() {
     const [contacto, setContacto] = useState({
         nombre: "",
         numero: "",
-        parentesco: ""
+        parentesco: undefined
     });
 
     const form = useRef(null);
@@ -28,7 +28,7 @@ export default function ContactoEmergenciaEstudianteForm() {
             setContacto({
                 nombre: "",
                 numero: "",
-                parentesco: ""
+                parentesco: undefined
             });
         } catch (error) {
             console.error("Error al registrar contacto de emergencia:", error);

@@ -6,10 +6,10 @@ export default function InscripcionEstudiantesForm() {
     const [inscripcion, setInscripcion] = useState({
         estudiante_id: "",
         id_seccion: "",
-        fecha_de_inscripcion: "",
-        estado: "",
-        pago_de_inscripcion: "",
-        observaciones: "",
+        fecha_de_inscripcion: undefined,
+        estado: undefined,
+        pago_de_inscripcion: undefined,
+        observaciones: undefined,
     });
 
     const form = useRef(null);
@@ -28,10 +28,10 @@ export default function InscripcionEstudiantesForm() {
             setInscripcion({
                 estudiante_id: "",
                 id_seccion: "",
-                fecha_de_inscripcion: "",
-                estado: "",
-                pago_de_inscripcion: "",
-                observaciones: "",
+                fecha_de_inscripcion: undefined,
+                estado: undefined,
+                pago_de_inscripcion: undefined,
+                observaciones: undefined,
             });
         } catch (error) {
             console.error("Error al registrar inscripción:", error);

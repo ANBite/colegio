@@ -7,8 +7,8 @@ export default function DocumentacionEmpleadoForm() {
         tipo_de_documento_id: "",
         estado: "",
         fecha_de_subida: "",
-        observaciones: "",
-        ruta_de_archivo: "",
+        observaciones: undefined,
+        ruta_de_archivo: undefined,
     });
 
     const [tiposDeDocumento, setTiposDeDocumento] = useState([]);
@@ -47,8 +47,8 @@ export default function DocumentacionEmpleadoForm() {
                 tipo_de_documento_id: "",
                 estado: "",
                 fecha_de_subida: "",
-                observaciones: "",
-                ruta_de_archivo: "",
+                observaciones: undefined,
+                ruta_de_archivo: undefined,
             });
         } catch (error) {
             console.error("Error al registrar documentación:", error);

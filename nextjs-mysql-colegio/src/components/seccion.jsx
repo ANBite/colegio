@@ -5,14 +5,14 @@ import { useEffect, useRef, useState } from "react";
 export default function SeccionForm() {
     const [seccion, setSeccion] = useState({
         grado_id: "",
-        nombre: "",
-        aula_asignada_id: "",
-        capacidad_max: "",
-        profesor_encargado_id: "",
-        ciclo_escolar_id: "",
-        estado: "",
-        horario_entrada: "",
-        horario_salida: "",
+        nombre: undefined,
+        aula_asignada_id: undefined,
+        capacidad_max: undefined,
+        profesor_encargado_id: undefined,
+        ciclo_escolar_id: undefined,
+        estado: undefined,
+        horario_entrada: undefined,
+        horario_salida: undefined,
     });
 
     const [grados, setGrados] = useState([]);
@@ -55,14 +55,14 @@ export default function SeccionForm() {
             form.current.reset();
             setSeccion({
                 grado_id: "",
-                nombre: "",
-                aula_asignada_id: "",
-                capacidad_max: "",
-                profesor_encargado_id: "",
-                ciclo_escolar_id: "",
-                estado: "",
-                horario_entrada: "",
-                horario_salida: "",
+                nombre: undefined,
+                aula_asignada_id: undefined,
+                capacidad_max: undefined,
+                profesor_encargado_id: undefined,
+                ciclo_escolar_id: undefined,
+                estado: undefined,
+                horario_entrada: undefined,
+                horario_salida: undefined,
             });
         } catch (error) {
             console.error("Error al registrar sección:", error);

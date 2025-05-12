@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 export default function TipoDocumentoEstudianteForm() {
     const [documento, setDocumento] = useState({
         nombre: "",
-        descripcion: "",
+        descripcion: undefined,
         obligatorio: false,
     });
 
@@ -27,7 +27,7 @@ export default function TipoDocumentoEstudianteForm() {
             form.current.reset();
             setDocumento({
                 nombre: "",
-                descripcion: "",
+                descripcion: undefined,
                 obligatorio: false,
             });
         } catch (error) {

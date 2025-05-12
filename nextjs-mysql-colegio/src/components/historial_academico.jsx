@@ -5,16 +5,16 @@ import { useRef, useState } from "react";
 export default function HistorialAcademicoForm() {
     const [historial, setHistorial] = useState({
         fecha_de_registro: "",
-        estudiante_id: "",
-        grado_id: "",
-        ciclo_escolar_id: "",
-        seccion_id: "",
-        estado: "",
-        cursado_cursando: "",
-        promedio_final: "",
-        observaciones: "",
+        estudiante_id: undefined,
+        grado_id: undefined,
+        ciclo_escolar_id: undefined,
+        seccion_id: undefined,
+        estado: undefined,
+        cursado_cursando: undefined,
+        promedio_final: undefined,
+        observaciones: undefined,
         promovido: false,
-        recomendacion: "",
+        recomendacion: undefined,
     });
 
     const form = useRef(null);
@@ -35,16 +35,16 @@ export default function HistorialAcademicoForm() {
             form.current.reset();
             setHistorial({
                 fecha_de_registro: "",
-                estudiante_id: "",
-                grado_id: "",
-                ciclo_escolar_id: "",
-                seccion_id: "",
-                estado: "",
-                cursado_cursando: "",
-                promedio_final: "",
-                observaciones: "",
+                estudiante_id: undefined,
+                grado_id: undefined,
+                ciclo_escolar_id: undefined,
+                seccion_id: undefined,
+                estado: undefined,
+                cursado_cursando: undefined,
+                promedio_final: undefined,
+                observaciones: undefined,
                 promovido: false,
-                recomendacion: "",
+                recomendacion: undefined,
             });
         } catch (error) {
             console.error("Error al registrar historial:", error);

@@ -5,15 +5,15 @@ import { useRef, useState } from "react";
 export default function PagoMatriculaForm() {
     const [pago, setPago] = useState({
         estudiante_id: "",
-        concepto: "",
+        concepto: undefined,
         fecha_de_pago: "",
         monto: "",
-        metodo_de_pago: "",
-        ciclo_escolar: "",
-        descuento_aplicado: "",
-        mora_aplicada: "",
-        factura: "",
-        estado: "",
+        metodo_de_pago: undefined,
+        ciclo_escolar: undefined,
+        descuento_aplicado: undefined,
+        mora_aplicada: undefined,
+        factura: undefined,
+        estado: undefined,
     });
 
     const form = useRef(null);
@@ -31,15 +31,15 @@ export default function PagoMatriculaForm() {
             form.current.reset();
             setPago({
                 estudiante_id: "",
-                concepto: "",
+                concepto: undefined,
                 fecha_de_pago: "",
                 monto: "",
-                metodo_de_pago: "",
-                ciclo_escolar: "",
-                descuento_aplicado: "",
-                mora_aplicada: "",
-                factura: "",
-                estado: "",
+                metodo_de_pago: undefined,
+                ciclo_escolar: undefined,
+                descuento_aplicado: undefined,
+                mora_aplicada: undefined,
+                factura: undefined,
+                estado: undefined,
             });
         } catch (error) {
             console.error("Error al registrar pago de matrícula:", error);
