@@ -69,19 +69,13 @@ export default function GradoForm() {
 
                 <div className="mb-4">
                     <label className="block text-gray-700">Prerrequisito:</label>
-                    <select
+                    <input
                         name="prerequisito_grado_id"
                         value={grado.prerequisito_grado_id}
                         onChange={handleChange}
                         className="w-full px-3 py-2 border rounded"
-                    >
-                        <option value="">Seleccione un prerrequisito...</option>
-                        {prerequisitos.map((pre) => (
-                            <option key={pre.id_prerrequisito} value={pre.id_prerrequisito}>
-                                {pre.grado} (Edad mínima: {pre.edad_minima_estudiante})
-                            </option>
-                        ))}
-                    </select>
+                        placeholder="Prerrequisito ID"
+                    />
                 </div>
 
                 <div className="col-span-2 mb-4">

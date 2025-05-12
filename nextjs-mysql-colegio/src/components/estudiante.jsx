@@ -6,19 +6,19 @@ export default function EstudianteForm() {
     const [estudiante, setEstudiante] = useState({
         cod_personal: "",
         nombre: "",
-        CUI: "",
-        fecha_nacimiento: "",
-        constancia: "",
-        genero: "",
-        fecha_ingreso: "",
-        fecha_egreso: "",
-        motivo_de_egreso: "",
-        tipo_sangre: "",
-        religion: "",
-        etnia: "",
-        idioma_materno: "",
+        CUI: undefined,
+        fecha_nacimiento: undefined,
+        constancia: undefined,
+        genero: undefined,
+        fecha_ingreso: undefined,
+        fecha_egreso: undefined,
+        motivo_de_egreso: undefined,
+        tipo_sangre: undefined,
+        religion: undefined,
+        etnia: undefined,
+        idioma_materno: undefined,
         necesita_apoyo_educativo: false,
-        beca_id: ""
+        beca_id: undefined
     });
 
     const [becas, setBecas] = useState([]);
@@ -54,19 +54,19 @@ export default function EstudianteForm() {
             setEstudiante({
                 cod_personal: "",
                 nombre: "",
-                CUI: "",
-                fecha_nacimiento: "",
-                constancia: "",
-                genero: "",
-                fecha_ingreso: "",
-                fecha_egreso: "",
-                motivo_de_egreso: "",
-                tipo_sangre: "",
-                religion: "",
-                etnia: "",
-                idioma_materno: "",
+                CUI: undefined,
+                fecha_nacimiento: undefined,
+                constancia: undefined,
+                genero: undefined,
+                fecha_ingreso: undefined,
+                fecha_egreso: undefined,
+                motivo_de_egreso: undefined,
+                tipo_sangre: undefined,
+                religion: undefined,
+                etnia: undefined,
+                idioma_materno: undefined,
                 necesita_apoyo_educativo: false,
-                beca_id: ""
+                beca_id: undefined
             });
         } catch (error) {
             console.error("Error al registrar estudiante:", error);
@@ -251,19 +251,13 @@ export default function EstudianteForm() {
 
                 <div className="mb-4">
                     <label className="block text-gray-700">Beca:</label>
-                    <select
+                    <input
                         name="beca_id"
                         value={estudiante.beca_id}
                         onChange={handleChange}
                         className="w-full px-3 py-2 border rounded"
-                    >
-                        <option value="">Ninguna</option>
-                        {becas.map(beca => (
-                            <option key={beca.beca_id} value={beca.beca_id}>
-                                {beca.nombre_beca} ({beca.porcentaje}%)
-                            </option>
-                        ))}
-                    </select>
+                        placeholder="Beca ID"
+                    />
                 </div>
             </div>
 

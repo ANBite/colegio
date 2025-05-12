@@ -67,19 +67,13 @@ export default function DocumentacionEmpleadoForm() {
             <div className="grid grid-cols-3 gap-4">
                 <div className="mb-4">
                     <label className="block text-gray-700">Tipo de Documento:</label>
-                    <select
+                    <input
                         name="tipo_de_documento_id"
                         value={documentacion.tipo_de_documento_id}
                         onChange={handleChange}
                         className="w-full px-3 py-2 border rounded"
-                    >
-                        <option value="">Seleccione un tipo de documento...</option>
-                        {tiposDeDocumento.map((tipo) => (
-                            <option key={tipo.tipo_de_documento_id} value={tipo.tipo_de_documento_id}>
-                                {tipo.nombre}
-                            </option>
-                        ))}
-                    </select>
+                        placeholder="Tipo de documento"
+                    />
                 </div>
 
                 <div className="mb-4">

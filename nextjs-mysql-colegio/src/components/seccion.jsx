@@ -93,38 +93,26 @@ export default function SeccionForm() {
 
                 <div>
                     <label className="block text-gray-700">Grado:</label>
-                    <select
+                    <input
                         name="grado_id"
                         value={seccion.grado_id}
                         onChange={handleChange}
                         className="w-full px-3 py-2 border rounded"
                         required
-                    >
-                        <option value="">Seleccione un grado...</option>
-                        {grados.map((grado) => (
-                            <option key={grado.id_grado} value={grado.id_grado}>
-                                {grado.nombre_grado}
-                            </option>
-                        ))}
-                    </select>
+                        placeholder="Grado ID"
+                    />
                 </div>
 
                 <div>
                     <label className="block text-gray-700">Aula asignada:</label>
-                    <select
+                    <input
                         name="aula_asignada_id"
                         value={seccion.aula_asignada_id}
                         onChange={handleChange}
                         className="w-full px-3 py-2 border rounded"
                         required
-                    >
-                        <option value="">Seleccione un aula...</option>
-                        {aulas.map((aula) => (
-                            <option key={aula.aula_id} value={aula.aula_id}>
-                                {aula.codigo} - Piso {aula.piso}
-                            </option>
-                        ))}
-                    </select>
+                        placeholder="Aula asignada ID"
+                    />
                 </div>
 
                 <div>
@@ -141,38 +129,26 @@ export default function SeccionForm() {
 
                 <div>
                     <label className="block text-gray-700">Profesor encargado:</label>
-                    <select
+                    <input
                         name="profesor_encargado_id"
                         value={seccion.profesor_encargado_id}
                         onChange={handleChange}
                         className="w-full px-3 py-2 border rounded"
                         required
-                    >
-                        <option value="">Seleccione un profesor...</option>
-                        {profesores.map((emp) => (
-                            <option key={emp.empleado_id} value={emp.empleado_id}>
-                                {emp.nombre}
-                            </option>
-                        ))}
-                    </select>
+                        placeholder="Profesor encargado ID"
+                    />
                 </div>
 
                 <div>
                     <label className="block text-gray-700">Ciclo escolar:</label>
-                    <select
+                    <input
                         name="ciclo_escolar_id"
                         value={seccion.ciclo_escolar_id}
                         onChange={handleChange}
                         className="w-full px-3 py-2 border rounded"
                         required
-                    >
-                        <option value="">Seleccione un ciclo...</option>
-                        {ciclos.map((ciclo) => (
-                            <option key={ciclo.ciclo_id} value={ciclo.ciclo_id}>
-                                {ciclo.nombre} ({ciclo.anio})
-                            </option>
-                        ))}
-                    </select>
+                        placeholder="Ciclo escolar ID"
+                    />
                 </div>
 
                 <div>

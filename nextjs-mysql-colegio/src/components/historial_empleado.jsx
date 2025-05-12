@@ -67,19 +67,14 @@ export default function HistorialEmpleadoForm() {
             <div className="grid grid-cols-3 gap-4">
                 <div className="mb-4">
                     <label className="block text-gray-700">Empleado:</label>
-                    <select
+                    <input
                         name="empleado_id"
                         value={historialEmpleado.empleado_id}
                         onChange={handleChange}
                         className="w-full px-3 py-2 border rounded"
-                    >
-                        <option value="">Seleccione un empleado...</option>
-                        {empleados.map((empleado) => (
-                            <option key={empleado.empleado_id} value={empleado.empleado_id}>
-                                {empleado.nombre}
-                            </option>
-                        ))}
-                    </select>
+                        placeholder="Empleado ID"
+                    />
+
                 </div>
 
                 <div className="mb-4">

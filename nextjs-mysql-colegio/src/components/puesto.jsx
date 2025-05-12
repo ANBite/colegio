@@ -87,19 +87,14 @@ export default function PuestoForm() {
 
                 <div className="mb-4">
                     <label className="block text-gray-700">Departamento:</label>
-                    <select
+                    <input
                         name="departamento_id"
                         value={puesto.departamento_id}
                         onChange={handleChange}
                         className="w-full px-3 py-2 border rounded"
-                    >
-                        <option value="">Seleccione un departamento...</option>
-                        {departamentos.map((departamento) => (
-                            <option key={departamento.departamento_id} value={departamento.departamento_id}>
-                                {departamento.nombre}
-                            </option>
-                        ))}
-                    </select>
+                        placeholder="ID del departamento"
+                    
+                    />
                 </div>
             </div>
 
