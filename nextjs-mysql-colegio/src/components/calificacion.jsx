@@ -8,14 +8,14 @@ export default function CalificacionForm() {
         seccion_id: "",
         curso_id: "",
         bimestre: "",
-        tipo_evaluacion: "",
-        puntaje: "",
-        ponderacion: "",
-        fecha_registro: "",
+        tipo_evaluacion: undefined,
+        puntaje: undefined,
+        ponderacion: undefined,
+        fecha_registro: undefined,
         profesor_id: "",
-        retroalimentacion: "",
-        observaciones: "",
-        fecha_actualizado: "",
+        retroalimentacion: undefined,
+        observaciones: undefined,
+        fecha_actualizado: undefined,
     });
 
     const form = useRef(null);
@@ -36,14 +36,14 @@ export default function CalificacionForm() {
                 seccion_id: "",
                 curso_id: "",
                 bimestre: "",
-                tipo_evaluacion: "",
-                puntaje: "",
-                ponderacion: "",
-                fecha_registro: "",
+                tipo_evaluacion: undefined,
+                puntaje: undefined,
+                ponderacion: undefined,
+                fecha_registro: undefined,
                 profesor_id: "",
-                retroalimentacion: "",
-                observaciones: "",
-                fecha_actualizado: "",
+                retroalimentacion: undefined,
+                observaciones: undefined,
+                fecha_actualizado: undefined,
             });
         } catch (error) {
             console.error("Error al registrar calificación:", error);

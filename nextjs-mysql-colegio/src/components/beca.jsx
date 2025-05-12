@@ -5,14 +5,14 @@ import { useRef, useState } from "react";
 export default function BecaForm() {
     const [beca, setBeca] = useState({
         nombre_beca: "",
-        descripcion: "",
+        descripcion: undefined,
         requisitos: "",
         porcentaje: "",
         fecha_inicio: "",
-        fecha_fin: "",
+        fecha_fin: undefined,
         estado: "",
-        convenio: "",
-        presupuesto: ""
+        convenio: undefined,
+        presupuesto: undefined
     });
 
     const form = useRef(null);
@@ -32,14 +32,14 @@ export default function BecaForm() {
             form.current.reset();
             setBeca({
                 nombre_beca: "",
-                descripcion: "",
+                descripcion: undefined,
                 requisitos: "",
                 porcentaje: "",
                 fecha_inicio: "",
-                fecha_fin: "",
+                fecha_fin: undefined,
                 estado: "",
-                convenio: "",
-                presupuesto: ""
+                convenio: undefined,
+                presupuesto: undefined
             });
         } catch (error) {
             console.error("Error al registrar beca:", error);

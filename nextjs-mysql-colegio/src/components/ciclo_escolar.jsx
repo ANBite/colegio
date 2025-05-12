@@ -6,12 +6,12 @@ export default function CicloEscolarForm() {
     const [ciclo, setCiclo] = useState({
         año: "",
         fecha_inicio: "",
-        fecha_fin: "",
+        fecha_fin: undefined,
         estado: "",
-        fecha_cierre_calificaciones: "",
-        fecha_cierre_de_actas: "",
-        director: "",
-        cordinador_academico: ""
+        fecha_cierre_calificaciones: undefined,
+        fecha_cierre_de_actas: undefined,
+        director: undefined,
+        cordinador_academico: undefined
     });
 
     const form = useRef(null);
@@ -32,12 +32,12 @@ export default function CicloEscolarForm() {
             setCiclo({
                 año: "",
                 fecha_inicio: "",
-                fecha_fin: "",
+                fecha_fin: undefined,
                 estado: "",
-                fecha_cierre_calificaciones: "",
-                fecha_cierre_de_actas: "",
-                director: "",
-                cordinador_academico: ""
+                fecha_cierre_calificaciones: undefined,
+                fecha_cierre_de_actas: undefined,
+                director: undefined,
+                cordinador_academico: undefined
             });
         } catch (error) {
             console.error("Error al registrar ciclo escolar:", error);

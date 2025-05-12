@@ -5,14 +5,14 @@ import { useRef, useState } from "react";
 export default function AulaForm() {
     const [aula, setAula] = useState({
         codigo: "",
-        piso: "",
+        piso: undefined,
         capacidad_maxima: "",
-        tipo_de_aula: "",
-        recursos_disponibles: "",
+        tipo_de_aula: undefined,
+        recursos_disponibles: undefined,
         estado: "",
-        horario_disponibilidad: "",
-        fecha_ultimo_mantenimiento: "",
-        observaciones: ""
+        horario_disponibilidad: undefined,
+        fecha_ultimo_mantenimiento: undefined,
+        observaciones: undefined
     });
 
     const form = useRef(null);
@@ -32,14 +32,14 @@ export default function AulaForm() {
             form.current.reset();
             setAula({
                 codigo: "",
-                piso: "",
+                piso: undefined,
                 capacidad_maxima: "",
-                tipo_de_aula: "",
-                recursos_disponibles: "",
+                tipo_de_aula: undefined,
+                recursos_disponibles: undefined,
                 estado: "",
-                horario_disponibilidad: "",
-                fecha_ultimo_mantenimiento: "",
-                observaciones: ""
+                horario_disponibilidad: undefined,
+                fecha_ultimo_mantenimiento: undefined,
+                observaciones: undefined
             });
         } catch (error) {
             console.error("Error al registrar aula:", error);

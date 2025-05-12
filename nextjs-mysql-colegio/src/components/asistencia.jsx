@@ -8,11 +8,11 @@ export default function AsistenciaForm() {
         curso_id: "",
         fecha: "",
         estado: "",
-        observaciones: "",
+        observaciones: undefined,
         profesor_id: "",
         hora_registro: "",
-        justificacion: "",
-        documento_justificacion: "",
+        justificacion: undefined,
+        documento_justificacion: undefined,
     });
 
     const form = useRef(null);
@@ -33,11 +33,11 @@ export default function AsistenciaForm() {
                 curso_id: "",
                 fecha: "",
                 estado: "",
-                observaciones: "",
+                observaciones: undefined,
                 profesor_id: "",
                 hora_registro: "",
-                justificacion: "",
-                documento_justificacion: "",
+                justificacion: undefined,
+                documento_justificacion: undefined,
             });
         } catch (error) {
             console.error("Error al registrar asistencia:", error);

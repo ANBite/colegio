@@ -7,10 +7,10 @@ export default function AsistenciaEmpleadoForm() {
         empleado_id: "",
         fecha: "",
         estado: "",
-        observaciones: "",
+        observaciones: undefined,
         hora_registro: "",
-        justificacion: "",
-        documento_justificacion: "",
+        justificacion: undefined,
+        documento_justificacion: undefined,
     });
 
     const [empleados, setEmpleados] = useState([]);
@@ -47,10 +47,10 @@ export default function AsistenciaEmpleadoForm() {
                 empleado_id: "",
                 fecha: "",
                 estado: "",
-                observaciones: "",
+                observaciones: undefined,
                 hora_registro: "",
-                justificacion: "",
-                documento_justificacion: "",
+                justificacion: undefined,
+                documento_justificacion: undefined,
             });
         } catch (error) {
             console.error("Error al registrar asistencia:", error);
