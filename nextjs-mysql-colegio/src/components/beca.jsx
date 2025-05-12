@@ -49,7 +49,7 @@ export default function BecaForm() {
 
     return (
         <form
-            className="absolute bg-white shadow-md rounded-md px-8 pt-6 pb-8 mb-4 w-[1440px] h-[650px] top-[70px] left-[20px]"
+            className="absolute bg-white shadow-md rounded-md px-8 pt-6 pb-8 mb-4 w-[1440px] h-[650px] top-[70px] left-[20px] overflow-y-auto"
             ref={form}
             onSubmit={handleSubmit}
         >
