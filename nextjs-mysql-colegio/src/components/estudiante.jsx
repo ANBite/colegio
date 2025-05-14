@@ -28,7 +28,7 @@ export default function EstudianteForm() {
         // Cargar becas disponibles
         const fetchBecas = async () => {
             try {
-                const res = await axios.get("/api/becas");
+                const res = await axios.get("/api/beca");
                 setBecas(res.data);
             } catch (error) {
                 console.error("Error al cargar becas:", error);
