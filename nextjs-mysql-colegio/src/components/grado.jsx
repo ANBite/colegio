@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 export default function GradoForm() {
     const [grado, setGrado] = useState({
         nombre_grado: "",
-        prerequisito_grado_id: undefined,
+        prerequisito_grado_id: "",
         descripcion: undefined,
     });
 
@@ -15,7 +15,7 @@ export default function GradoForm() {
     useEffect(() => {
         const fetchPrerequisitos = async () => {
             try {
-                const res = await axios.get("/api/prerrequisito_grado");
+                const res = await axios.get("/api/prerrequisito-grado");
                 setPrerequisitos(res.data);
             } catch (error) {
                 console.error("Error al cargar prerrequisitos:", error);
@@ -37,7 +37,7 @@ export default function GradoForm() {
             form.current.reset();
             setGrado({
                 nombre_grado: "",
-                prerequisito_grado_id: undefined,
+                prerequisito_grado_id: "",
                 descripcion: undefined,
             });
         } catch (error) {

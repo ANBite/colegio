@@ -20,7 +20,7 @@ export default function EmpleadoForm() {
         tipo_de_empleado_id: "",
         especialidad: undefined,
         titulo: "",
-        no_colegiado: undefined,
+        no_colegiado: "",
         nivel_educativo: undefined,
         estado: "Activo"
     });
@@ -54,7 +54,7 @@ export default function EmpleadoForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post("/api/empleados", empleado);
+            const res = await axios.post("/api/empleado", empleado);
             alert("Empleado registrado exitosamente");
             form.current.reset();
             setEmpleado({
@@ -65,7 +65,7 @@ export default function EmpleadoForm() {
                 fecha_nacimiento: "",
                 genero: "",
                 direccion: undefined,
-                telefono: undefined,
+                telefono: "",
                 estado_civil: undefined,
                 fecha_contratacion: undefined,
                 fecha_egreso: undefined,
@@ -75,7 +75,7 @@ export default function EmpleadoForm() {
                 tipo_de_empleado_id: "",
                 especialidad: undefined,
                 titulo: "",
-                no_colegiado: undefined,
+                no_colegiado: "",
                 nivel_educativo: undefined,
                 estado: "Activo"
             });

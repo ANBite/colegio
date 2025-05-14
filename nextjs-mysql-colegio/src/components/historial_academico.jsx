@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 export default function HistorialAcademicoForm() {
     const [historial, setHistorial] = useState({
         fecha_de_registro: "",
-        estudiante_id: undefined,
+        estudiante_id: "",
         grado_id: undefined,
         ciclo_escolar_id: undefined,
         seccion_id: undefined,
@@ -30,12 +30,12 @@ export default function HistorialAcademicoForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("/api/historial_academico", historial);
+            await axios.post("/api/historial-academico", historial);
             alert("Historial académico registrado exitosamente");
             form.current.reset();
             setHistorial({
                 fecha_de_registro: "",
-                estudiante_id: undefined,
+                estudiante_id: "",
                 grado_id: undefined,
                 ciclo_escolar_id: undefined,
                 seccion_id: undefined,

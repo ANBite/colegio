@@ -26,7 +26,7 @@ export default function PagoMatriculaForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("/api/pago_matricula", pago);
+            await axios.post("/api/pago-matricula", pago);
             alert("Pago de matrícula registrado exitosamente");
             form.current.reset();
             setPago({

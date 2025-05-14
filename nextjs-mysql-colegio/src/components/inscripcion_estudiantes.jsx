@@ -22,7 +22,7 @@ export default function InscripcionEstudiantesForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("/api/inscripcion_estudiantes", inscripcion);
+            await axios.post("/api/inscripcion-estudiante", inscripcion);
             alert("Inscripción registrada exitosamente");
             form.current.reset();
             setInscripcion({

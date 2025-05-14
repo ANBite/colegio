@@ -5,8 +5,8 @@ import { useEffect, useRef, useState } from "react";
 export default function HistorialEmpleadoForm() {
     const [historialEmpleado, setHistorialEmpleado] = useState({
         empleado_id: "",
-        fecha_de_registro: undefined,
-        accion_realizada: undefined,
+        fecha_de_registro: "",
+        accion_realizada: "",
         descripcion: undefined,
         usuario_registro: undefined,
         observaciones: undefined,
@@ -44,8 +44,8 @@ export default function HistorialEmpleadoForm() {
             form.current.reset();
             setHistorialEmpleado({
                 empleado_id: "",
-                fecha_de_registro: undefined,
-                accion_realizada: undefined,
+                fecha_de_registro: "",
+                accion_realizada: "",
                 descripcion: undefined,
                 usuario_registro: undefined,
                 observaciones: undefined,
